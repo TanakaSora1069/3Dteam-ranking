@@ -1,0 +1,223 @@
+//==============================================================================
+//
+// オブジェクトモデル配置情報 [model_import.txt]
+// Author : 福田歩希
+//
+//==============================================================================
+
+#------------------------------------------------------------------------------
+# モデル数
+#------------------------------------------------------------------------------
+AMOUNT_MODEL = 16
+
+#------------------------------------------------------------------------------
+# モデルファイル名
+#------------------------------------------------------------------------------
+MODEL_FILENAME = data\\MODEL\\OBJECT\\enemy.x			# [0] // ロボット
+MODEL_FILENAME = data\\MODEL\\OBJECT\\Player_body002.x	# [1] // 002
+MODEL_FILENAME = data\\MODEL\\OBJECT\\Player_body003.x	# [2] // 003
+MODEL_FILENAME = data\\MODEL\\OBJECT\\building008.x		# [3] // 建物
+MODEL_FILENAME = data\\MODEL\\OBJECT\\building001.x		# [4] // 建物
+MODEL_FILENAME = data\\MODEL\\OBJECT\\building002.x		# [5] // 建物
+MODEL_FILENAME = data\\MODEL\\OBJECT\\building003.x		# [6] // 建物
+MODEL_FILENAME = data\\MODEL\\OBJECT\\building004.x		# [7] // 建物
+MODEL_FILENAME = data\\MODEL\\OBJECT\\building007.x		# [8] // 建物
+MODEL_FILENAME = data\\MODEL\\OBJECT\\street_curve.x	# [9] // 道路
+MODEL_FILENAME = data\\MODEL\\OBJECT\\street_line.x		# [10] //道路
+MODEL_FILENAME = data\\MODEL\\OBJECT\\rubble1.x			# [11] //がれき
+MODEL_FILENAME = data\\MODEL\\OBJECT\\power_plant000.x	# [12] //発電所
+MODEL_FILENAME = data\\MODEL\\OBJECT\\power_plant001.x	# [13] //発電所
+MODEL_FILENAME = data\\MODEL\\OBJECT\\AEON001.x			# [14] //イオン
+MODEL_FILENAME = data\\MODEL\\OBJECT\\power_plant001.x	# [15] //発電所
+
+#------------------------------------------------------------------------------
+# モデル配置情報
+#------------------------------------------------------------------------------
+MODELSET
+	TYPE = 14
+	POS = -2251.0 0.0 2043.0
+	ROT = 0.0 0.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 13
+	POS = 2321.7 0.0 2221.0
+	ROT = 0.0 0.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 13
+	POS = 2111.7 0.0 2222.0
+	ROT = 0.0 0.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 12
+	POS = 2231.4 0.0 1821.3
+	ROT = 0.0 90.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 12
+	POS = 2231.4 0.0 1263.3
+	ROT = 0.0 90.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 8
+	POS = -1642.4 0.0 1698.9
+	ROT = 0.0 540.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 7
+	POS = -1426.4 0.0 1698.9
+	ROT = 0.0 540.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 6
+	POS = -1287.4 0.0 1698.9
+	ROT = 0.0 540.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 6
+	POS = -1194.4 0.0 1698.9
+	ROT = 0.0 540.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 4
+	POS = -1065.4 0.0 1698.9
+	ROT = 0.0 540.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 3
+	POS = -907.4 0.0 1698.9
+	ROT = 0.0 900.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 7
+	POS = -761.4 0.0 1698.9
+	ROT = 0.0 900.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 6
+	POS = -643.4 0.0 1698.9
+	ROT = 0.0 900.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 5
+	POS = -643.4 0.0 1451.9
+	ROT = 0.0 900.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 4
+	POS = -643.4 0.0 1249.9
+	ROT = 0.0 900.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 3
+	POS = -643.4 0.0 1110.9
+	ROT = 0.0 900.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 3
+	POS = -643.4 0.0 978.9
+	ROT = 0.0 990.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 8
+	POS = -672.3 0.0 752.1
+	ROT = 0.0 990.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 7
+	POS = -672.3 0.0 522.1
+	ROT = 0.0 990.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 6
+	POS = -814.3 0.0 522.1
+	ROT = 0.0 990.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 5
+	POS = -1059.3 0.0 522.1
+	ROT = 0.0 1080.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 4
+	POS = -1229.3 0.0 522.1
+	ROT = 0.0 1080.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 3
+	POS = -1387.3 0.0 522.1
+	ROT = 0.0 1080.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 8
+	POS = -1633.3 0.0 522.1
+	ROT = 0.0 1080.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 7
+	POS = -1846.3 0.0 522.1
+	ROT = 0.0 1080.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 6
+	POS = -1839.8 0.0 695.6
+	ROT = 0.0 1080.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 5
+	POS = -1839.8 0.0 900.6
+	ROT = 0.0 1170.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 4
+	POS = -1839.8 0.0 1055.6
+	ROT = 0.0 1170.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 3
+	POS = -1839.8 0.0 1182.6
+	ROT = 0.0 1170.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 5
+	POS = -1832.8 0.0 1365.6
+	ROT = 0.0 1170.0 0.0
+END_MODELSET
+
+MODELSET
+	TYPE = 5
+	POS = -1834.8 0.0 1535.6
+	ROT = 0.0 1170.0 0.0
+END_MODELSET
+
+END_SCRIPT
+

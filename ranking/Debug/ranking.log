@@ -1,0 +1,4 @@
+﻿  ranking.cpp
+C:\Users\student\Documents\Visual Studio 2019\programs\ranking\Src\ranking.cpp(161,8): warning C4101: 'pFile': ローカル変数は 1 度も使われていません。
+C:\Users\student\Documents\Visual Studio 2019\programs\ranking\Src\ranking.cpp(196,59): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+  ranking.vcxproj -> C:\Users\student\Documents\Visual Studio 2019\programs\ranking\ranking.exe

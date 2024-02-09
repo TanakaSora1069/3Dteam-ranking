@@ -1,0 +1,155 @@
+//------------------------------------------------------------------------------
+//
+// これらのデータはすべてのボスに共有されます
+//
+//------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
+# モデル数
+#------------------------------------------------------------------------------
+AMOUNT_MODEL = 15
+
+#------------------------------------------------------------------------------
+# モデルファイル名
+#------------------------------------------------------------------------------
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/01_body1.x		# [0]胸
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/02_body2.x		# [1]腹
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/00_head.x			# [2]頭
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/03_rightarm1.x	# [3]右上腕
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/04_rightarm2.x	# [4]右腕
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/05_righthand.x	# [5]右手
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/06_leftarm1.x		# [6]左上腕
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/07_leftarm2.x		# [7]左腕
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/08_lefthand.x		# [8]左手
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/09_leftleg1.x		# [9]右腿
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/10_leftleg2.x		# [10]右脛
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/11_leftfoot.x		# [11]右足
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/12_rightleg1.x	# [12]左腿
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/13_rightleg2.x	# [13]左脛
+MODEL_FILENAME = data/MODEL/BOSS/Enemy_Boss001/Boss_human/14_rightfoot.x	# [14]左足
+
+#------------------------------------------------------------------------------
+# キャラクター情報
+#------------------------------------------------------------------------------
+CHARACTERSET
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 0					# 胸
+		PARENT = -1					# (親)NULL
+		POS = 0.0 65.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 1					# 腹
+		PARENT = 0					# (親)胸
+		POS = 0.0 0.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 2					# 頭
+		PARENT = 0					# (親)胸
+		POS = 0.0 30.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 3					# 右上腕
+		PARENT = 0					# (親)胸
+		POS = -16.0 22.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 4					# 右腕
+		PARENT = 3					# (親)右上腕
+		POS = -22.0 0.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 5					# 右手
+		PARENT = 4					# (親)右上腕
+		POS = -30.0 0.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 6					# 左上腕
+		PARENT = 0					# (親)胸
+		POS = 16.0 22.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 7					# 左腕
+		PARENT = 6					# (親)左上腕
+		POS = 22.0 0.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 8					# 左手
+		PARENT = 7					# (親)左腕
+		POS = 30.0 0.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 9					# 右腿
+		PARENT = 1					# (親)腹
+		POS = -10.0 -5.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+	
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 10					# 右脛
+		PARENT = 9					# (親)右腿
+		POS = 0.0 -21.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+	
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 11					# 右足
+		PARENT = 10					# (親)右脛
+		POS = 0.0 -25.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+	
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 12					# 左腿
+		PARENT = 1					# (親)腹
+		POS = 10.0 -5.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+	
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 13					# 左脛
+		PARENT = 12					# (親)左腿
+		POS = 0.0 -21.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+	
+	PARTSSET
+		STYLE = 0					# ロボット
+		INDEX = 14					# 左足
+		PARENT = 13					# (親)左脛
+		POS = 0.0 -25.0 0.0
+		ROT = 0.0 0.0 0.0
+	END_PARTSSET
+	
+END_CHARACTERSET
