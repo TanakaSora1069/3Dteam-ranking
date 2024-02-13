@@ -147,7 +147,6 @@ void DrawRanking(void)
 
 			// ポリゴンの描画
 			pDevice->DrawPrimitive(D3DPT_TRIANGLESTRIP, nCnt * AMOUNT_VTX, 2);
-
 		}
 	}
 
@@ -190,18 +189,20 @@ void SetRankingText(void)
 
 	nCnt++;
 
-	// プレイヤー人数
+	// プレイ人数
 	for (int nPlayerCnt = 0; nPlayerCnt < MAX_PLAYER; nPlayerCnt++)
 	{
-		g_aTextRanking[nCnt].pos = D3DXVECTOR3(SCREEN_WIDTH / 4 * nPlayerCnt, 100, 0);
-		g_aTextRanking[nCnt].type = 0;
+		g_aTextRanking[nCnt].pos = D3DXVECTOR3(float(SCREEN_WIDTH / 4 * nPlayerCnt), 300, 0);
+		g_aTextRanking[nCnt].type = 1;
 		g_aTextRanking[nCnt].bUse = true;
 
 		nCnt++;
 	}
 
 	// ボタンでタイトルへ戻る
-
+	g_aTextRanking[nCnt].pos = D3DXVECTOR3(SCREEN_WIDTH - 100, SCREEN_HEIGHT - 100, 0);
+	g_aTextRanking[nCnt].type = 2;
+	g_aTextRanking[nCnt].bUse = true;
 
 	nCnt++;
 
@@ -209,12 +210,18 @@ void SetRankingText(void)
 	/// プレイ人数
 	for (int nPlayerCnt = 0; nPlayerCnt < MAX_PLAYER; nPlayerCnt++)
 	{
+		g_aTextRanking[nCnt].type = 3;
+		g_aTextRanking[nCnt].bUse = true;
 
+		nCnt++;
 	}
 
 	/// スコア
 	for (int nScoreCnt = 0; nScoreCnt < MAX_SCORE * MAX_RANK * MAX_PLAYER; nScoreCnt++)
 	{
+		g_aTextRanking[nCnt].type = 3;
+		g_aTextRanking[nCnt].bUse = true;
 
+		nCnt++;
 	}
 }
