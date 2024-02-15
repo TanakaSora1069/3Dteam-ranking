@@ -29,10 +29,10 @@ void InitRanking(void)
 	LPDIRECT3DDEVICE9 pDevice = GetDevice();	// デバイスへのポインタ
 
 	// テクスチャの読み込み
-	D3DXCreateTextureFromFile(pDevice, "data\\texture\\score_title_demo.png", &g_pTextureRanking[0]);
-	D3DXCreateTextureFromFile(pDevice, "data\\texture\\score_player_demo.png", &g_pTextureRanking[1]);
-	D3DXCreateTextureFromFile(pDevice, "data\\texture\\score_end_demo.png", &g_pTextureRanking[2]);
-	D3DXCreateTextureFromFile(pDevice, "data\\texture\\score_number_demo.png", &g_pTextureRanking[3]);
+	D3DXCreateTextureFromFile(pDevice, "data\\texture\\title\\score_title_demo.png", &g_pTextureRanking[0]);
+	D3DXCreateTextureFromFile(pDevice, "data\\texture\\title\\score_player_demo.png", &g_pTextureRanking[1]);
+	D3DXCreateTextureFromFile(pDevice, "data\\texture\\title\\score_end_demo.png", &g_pTextureRanking[2]);
+	D3DXCreateTextureFromFile(pDevice, "data\\texture\\title\\score_number_demo.png", &g_pTextureRanking[3]);
 
 	for (int nCnt = 0; nCnt < MAX_RANK * MAX_PLAYER; nCnt++)
 	{
@@ -43,7 +43,7 @@ void InitRanking(void)
 
 
 
-	pDevice->CreateVertexBuffer(sizeof(VERTEX_2D) * 4,
+	pDevice->CreateVertexBuffer(sizeof(VERTEX_2D) * 4 * MAX_TEXT,
 		D3DUSAGE_WRITEONLY,
 		FVF_VERTEX_2D,
 		D3DPOOL_MANAGED,
@@ -237,10 +237,10 @@ void SetRankingText(void)
 	/// プレイ人数
 	for (int nPlayerCnt = 0; nPlayerCnt < MAX_PLAYER; nPlayerCnt++)
 	{
-
+		g_aTextRanking[nCnt].pos = D3DXVECTOR3(float(SCREEN_WIDTH / 4 * nPlayerCnt)-175.0f, 300, 0);
 		g_aTextRanking[nCnt].type = 3;
-		//g_aTextRanking[nCnt].whith = ;
-		//g_aTextRanking[nCnt].height = ;
+		g_aTextRanking[nCnt].whith = 50.0f;
+		g_aTextRanking[nCnt].height = 100.0f;
 		g_aTextRanking[nCnt].bUse = true;
 
 		nCnt++;
@@ -250,9 +250,10 @@ void SetRankingText(void)
 	/// スコア
 	for (int nScoreCnt = 0; nScoreCnt < MAX_SCORE * MAX_RANK * MAX_PLAYER; nScoreCnt++)
 	{
+		//g_aTextRanking[nCnt].pos = D3DXVECTOR3(0, 0, 0);
 		g_aTextRanking[nCnt].type = 3;
-		//g_aTextRanking[nCnt].whith = ;
-		//g_aTextRanking[nCnt].height = ;
+		g_aTextRanking[nCnt].whith = 40.0f;
+		g_aTextRanking[nCnt].height = 80.0f;
 		g_aTextRanking[nCnt].bUse = true;
 
 		nCnt++;
