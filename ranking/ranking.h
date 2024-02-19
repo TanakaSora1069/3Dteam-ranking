@@ -20,7 +20,7 @@ typedef struct
 {
 	D3DXVECTOR3 pos;	// 座標
 	int type;			// テクスチャの種類
-	float whith;		// 横幅
+	float width;		// 横幅
 	float height;		// 縦幅
 	bool bUse;			// 使用されているか
 }TEXT_RANKING;	// ランキング画面のテキスト
