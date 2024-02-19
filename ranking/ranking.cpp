@@ -29,23 +29,23 @@ void InitRanking(void)
 
 	// テクスチャの読み込み
 	D3DXCreateTextureFromFile(pDevice,
-		"",
+		"data\\texture\\title.jpg",
 		&g_pTextureRanking[0]);	// 背景
 
 	D3DXCreateTextureFromFile(pDevice,
-		"data\\texture\\title\\score_title_demo.png",
+		"data\\texture\\ranking\\score_title_demo.png",
 		&g_pTextureRanking[1]);	// タイトル
 
 	D3DXCreateTextureFromFile(pDevice,
-		"data\\texture\\title\\score_player_demo.png",
+		"data\\texture\\ranking\\score_player_demo.png",
 		&g_pTextureRanking[2]);	// プレイヤ―人数
 
 	D3DXCreateTextureFromFile(pDevice, 
-		"data\\texture\\title\\score_end_demo.png", 
+		"data\\texture\\ranking\\score_end_demo.png", 
 		&g_pTextureRanking[3]);	// 切り替え表示
 
 	D3DXCreateTextureFromFile(pDevice,
-		"data\\texture\\title\\score_number_demo.png",
+		"",
 		&g_pTextureRanking[4]);	// 数字
 
 	for (int nCnt = 0; nCnt < MAX_RANK * MAX_PLAYER; nCnt++)
@@ -74,10 +74,10 @@ void InitRanking(void)
 		g_aTextRanking[nCnt].type = 0;
 		g_aTextRanking[nCnt].bUse = false;
 
-		pVtx[0].pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-		pVtx[1].pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-		pVtx[2].pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-		pVtx[3].pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		pVtx[0].pos = D3DXVECTOR3(0, 0, 0);
+		pVtx[1].pos = D3DXVECTOR3(SCREEN_HEIGHT, 0, 0);
+		pVtx[2].pos = D3DXVECTOR3(0, SCREEN_WHITH, 0);
+		pVtx[3].pos = D3DXVECTOR3(SCREEN_HEIGHT, SCREEN_WHITH, 0);
 
 		pVtx[0].rhw = 1.0f;
 		pVtx[1].rhw = 1.0f;
@@ -105,7 +105,7 @@ void InitRanking(void)
 //========================================
 void UninitRanking(void)
 {
-	for (int nCnt = 0; nCnt < 4; nCnt++)
+	for (int nCnt = 0; nCnt < 5; nCnt++)
 	{
 		if (g_pTextureRanking[nCnt] != NULL)
 		{
@@ -126,10 +126,10 @@ void UninitRanking(void)
 //========================================
 void UpdateRanking(void)
 {
-	// STARTボタンが押されたらタイトルへ
-	if (GetJoypadPress(JOYKEY_START, 0))
+
+	if (GetJoypadTrigger(JOYKEY_A, 0) == true || GetKeyboardTrigger(DIK_RETURN) == true)
 	{
-		//SetMode(MODE_RANKING);
+		SetMode(MODE_TITLE);
 	}
 
 	// 文字の点滅
@@ -200,10 +200,11 @@ void SetRankingText(void)
 	g_pVtxBuffRanking->Lock(0, 0, (void**)&pVtx, 0);
 
 	// 背景
-	pVtx[0].pos = D3DXVECTOR3(0, 0, 0);
-	pVtx[1].pos = D3DXVECTOR3(SCREEN_HEIGHT, 0, 0);
-	pVtx[2].pos = D3DXVECTOR3(0, SCREEN_WHITH, 0);
-	pVtx[3].pos = D3DXVECTOR3(SCREEN_HEIGHT, SCREEN_WHITH, 0);
+	g_pTextureRanking[nCnt].bUse = true;
+
+	nCnt++;
+
+	pVtx += AMOUNT_VTX;
 
 	// タイトル
 	g_aTextRanking[nCnt].pos = D3DXVECTOR3(SCREEN_HALFWIDTH, 100, 0);
@@ -270,7 +271,7 @@ void SetRankingText(void)
 	/// スコア
 	for (int nScoreCnt = 0; nScoreCnt < MAX_SCORE * MAX_RANK * MAX_PLAYER; nScoreCnt++)
 	{
-		//g_aTextRanking[nCnt].pos = D3DXVECTOR3(0, 0, 0);
+		g_aTextRanking[nCnt].pos = D3DXVECTOR3(0, 0, 0);
 		g_aTextRanking[nCnt].type = 3;
 		g_aTextRanking[nCnt].width = 40.0f;
 		g_aTextRanking[nCnt].height = 80.0f;
