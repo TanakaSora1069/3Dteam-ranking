@@ -11,7 +11,7 @@
 // 使用するファイル
 #include "input.h"
 #include "sound.h"
-//#include "title.h"
+#include "title.h"
 
 int g_aHighScore[MAX_RANK * MAX_PLAYER];	// ハイスコア格納
 int g_PlayerNum;							// プレイ人数
@@ -75,9 +75,9 @@ void InitRanking(void)
 		g_aTextRanking[nCnt].bUse = false;
 
 		pVtx[0].pos = D3DXVECTOR3(0, 0, 0);
-		pVtx[1].pos = D3DXVECTOR3(SCREEN_HEIGHT, 0, 0);
-		pVtx[2].pos = D3DXVECTOR3(0, SCREEN_WHITH, 0);
-		pVtx[3].pos = D3DXVECTOR3(SCREEN_HEIGHT, SCREEN_WHITH, 0);
+		pVtx[1].pos = D3DXVECTOR3(SCREEN_WIDTH, 0, 0);
+		pVtx[2].pos = D3DXVECTOR3(0, SCREEN_HEIGHT, 0);
+		pVtx[3].pos = D3DXVECTOR3(SCREEN_WIDTH, SCREEN_HEIGHT, 0);
 
 		pVtx[0].rhw = 1.0f;
 		pVtx[1].rhw = 1.0f;
@@ -98,6 +98,8 @@ void InitRanking(void)
 	}
 
 	g_pVtxBuffRanking->Unlock();
+
+	SetRankingText();
 }
 
 //========================================
@@ -200,15 +202,15 @@ void SetRankingText(void)
 	g_pVtxBuffRanking->Lock(0, 0, (void**)&pVtx, 0);
 
 	// 背景
-	g_pTextureRanking[nCnt].bUse = true;
+	g_aTextRanking[nCnt].type = 0;
+	g_aTextRanking[nCnt].bUse = true;
 
 	nCnt++;
-
 	pVtx += AMOUNT_VTX;
 
 	// タイトル
 	g_aTextRanking[nCnt].pos = D3DXVECTOR3(SCREEN_HALFWIDTH, 100, 0);
-	g_aTextRanking[nCnt].type = 0;
+	g_aTextRanking[nCnt].type = 1;
 	g_aTextRanking[nCnt].width = 800.0f;
 	g_aTextRanking[nCnt].height = 150.0f;
 	g_aTextRanking[nCnt].bUse = true;
@@ -225,7 +227,7 @@ void SetRankingText(void)
 	for (int nPlayerCnt = 0; nPlayerCnt < MAX_PLAYER; nPlayerCnt++)
 	{
 		g_aTextRanking[nCnt].pos = D3DXVECTOR3(float(SCREEN_WIDTH / 4 * nPlayerCnt), 300, 0);
-		g_aTextRanking[nCnt].type = 1;
+		g_aTextRanking[nCnt].type = 2;
 		g_aTextRanking[nCnt].width = 300.0f;
 		g_aTextRanking[nCnt].height = 100.0f;
 		g_aTextRanking[nCnt].bUse = true;
@@ -241,7 +243,7 @@ void SetRankingText(void)
 
 	// ボタンでタイトルへ戻る
 	g_aTextRanking[nCnt].pos = D3DXVECTOR3(SCREEN_WIDTH - 100, SCREEN_HEIGHT - 100, 0);
-	g_aTextRanking[nCnt].type = 2;
+	g_aTextRanking[nCnt].type = 3;
 	g_aTextRanking[nCnt].width = 400.0f;
 	g_aTextRanking[nCnt].height = 80.0f;
 	g_aTextRanking[nCnt].bUse = true;
@@ -255,29 +257,31 @@ void SetRankingText(void)
 	pVtx += AMOUNT_VTX;
 
 	// 数字	
-	/// プレイ人数
-	for (int nPlayerCnt = 0; nPlayerCnt < MAX_PLAYER; nPlayerCnt++)
-	{
-		g_aTextRanking[nCnt].pos = D3DXVECTOR3(float(SCREEN_WIDTH / 4 * nPlayerCnt)-175.0f, 300, 0);
-		g_aTextRanking[nCnt].type = 3;
-		g_aTextRanking[nCnt].width = 50.0f;
-		g_aTextRanking[nCnt].height = 100.0f;
-		g_aTextRanking[nCnt].bUse = true;
+	///// プレイ人数
+	//for (int nPlayerCnt = 0; nPlayerCnt < MAX_PLAYER; nPlayerCnt++)
+	//{
+	//	g_aTextRanking[nCnt].pos = D3DXVECTOR3(float(SCREEN_WIDTH / 4 * nPlayerCnt)-175.0f, 300, 0);
+	//	g_aTextRanking[nCnt].type = 3;
+	//	g_aTextRanking[nCnt].width = 50.0f;
+	//	g_aTextRanking[nCnt].height = 100.0f;
+	//	g_aTextRanking[nCnt].bUse = true;
 
-		nCnt++;
-		pVtx += AMOUNT_VTX;
-	}
+	//	nCnt++;
+	//	pVtx += AMOUNT_VTX;
+	//}
 
-	/// スコア
-	for (int nScoreCnt = 0; nScoreCnt < MAX_SCORE * MAX_RANK * MAX_PLAYER; nScoreCnt++)
-	{
-		g_aTextRanking[nCnt].pos = D3DXVECTOR3(0, 0, 0);
-		g_aTextRanking[nCnt].type = 3;
-		g_aTextRanking[nCnt].width = 40.0f;
-		g_aTextRanking[nCnt].height = 80.0f;
-		g_aTextRanking[nCnt].bUse = true;
+	///// スコア
+	//for (int nScoreCnt = 0; nScoreCnt < MAX_SCORE * MAX_RANK * MAX_PLAYER; nScoreCnt++)
+	//{
+	//	g_aTextRanking[nCnt].pos = D3DXVECTOR3(0, 0, 0);
+	//	g_aTextRanking[nCnt].type = 3;
+	//	g_aTextRanking[nCnt].width = 40.0f;
+	//	g_aTextRanking[nCnt].height = 80.0f;
+	//	g_aTextRanking[nCnt].bUse = true;
 
-		nCnt++;
-		pVtx += AMOUNT_VTX;
-	}
+	//	nCnt++;
+	//	pVtx += AMOUNT_VTX;
+	//}
+
+	g_pVtxBuffRanking->Unlock();
 }
