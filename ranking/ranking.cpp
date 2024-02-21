@@ -99,6 +99,7 @@ void InitRanking(void)
 
 	g_pVtxBuffRanking->Unlock();
 
+	GetScore();
 	SetRankingText();
 }
 
@@ -183,7 +184,7 @@ void GetScore(void)
 		for (int nCnt = 0; nCnt < MAX_RANK * MAX_PLAYER; nCnt++)
 		{
 			// ファイルからスコアを読み込む
-			g_aHighScore[nCnt] = int(123400); // スコア（仮）
+			g_aHighScore[nCnt] = int(00123400); // スコア（仮）
 		}
 
 		// ファイルを閉じる
@@ -271,15 +272,19 @@ void SetRankingText(void)
 	//}
 
 	/// スコア
-	int aScore[MAX_SCORE] = {};
+	int aScore[MAX_SCORE] = {};	// 表示用スコア格納
+	int nScoreSto = 0;			// 計算用スコア格納
 
 	for (int nPlayerCnt = 1; nPlayerCnt <= MAX_PLAYER; nPlayerCnt++)
 	{
 		for (int nRankCnt = 0; nRankCnt < MAX_RANK; nRankCnt++)
 		{
+			nScoreSto = g_aHighScore[((nPlayerCnt - 1) * MAX_PLAYER) + nRankCnt];
+
 			for (int nScoreCnt = 0; nScoreCnt < MAX_SCORE; nScoreCnt++)
 			{
-				aScore[nScoreCnt] = 0;
+				aScore[MAX_SCORE - nScoreCnt - 1] = nScoreSto - ((nScoreSto / 10) * 10);
+				nScoreSto /= 10;
 			}
 
 			for (int nScoreCnt = 0; nScoreCnt < MAX_SCORE; nScoreCnt++)
