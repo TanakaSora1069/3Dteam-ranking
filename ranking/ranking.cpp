@@ -226,7 +226,7 @@ void SetRankingText(void)
 	// プレイ人数
 	for (int nPlayerCnt = 1; nPlayerCnt <= MAX_PLAYER; nPlayerCnt++)
 	{
-		g_aTextRanking[nCnt].pos = D3DXVECTOR3(SCREEN_WIDTH / 5 * nPlayerCnt, 300, 0);
+		g_aTextRanking[nCnt].pos = D3DXVECTOR3(float(SCREEN_WIDTH / 5 * nPlayerCnt), 300, 0);
 		g_aTextRanking[nCnt].type = 2;
 		g_aTextRanking[nCnt].width = 300.0f;
 		g_aTextRanking[nCnt].height = 100.0f;
@@ -271,17 +271,24 @@ void SetRankingText(void)
 	//}
 
 	/// スコア
+	int aScore[MAX_SCORE] = {};
+
 	for (int nPlayerCnt = 1; nPlayerCnt <= MAX_PLAYER; nPlayerCnt++)
 	{
 		for (int nRankCnt = 0; nRankCnt < MAX_RANK; nRankCnt++)
 		{
 			for (int nScoreCnt = 0; nScoreCnt < MAX_SCORE; nScoreCnt++)
 			{
+				aScore[nScoreCnt] = 0;
+			}
+
+			for (int nScoreCnt = 0; nScoreCnt < MAX_SCORE; nScoreCnt++)
+			{
 				g_aTextRanking[nCnt].type = 4;
 				g_aTextRanking[nCnt].width = 40.0f;
 				g_aTextRanking[nCnt].height = 100.0f;
-				g_aTextRanking[nCnt].pos = D3DXVECTOR3((SCREEN_WIDTH / 5 * nPlayerCnt) + (nScoreCnt * g_aTextRanking[nCnt].width) - (g_aTextRanking[nCnt].width * 3.5),
-					nRankCnt * 100.0 + 500, 0);
+				g_aTextRanking[nCnt].pos = D3DXVECTOR3(float((SCREEN_WIDTH / 5 * nPlayerCnt) + (nScoreCnt * g_aTextRanking[nCnt].width) - (g_aTextRanking[nCnt].width * 3.5)),
+					nRankCnt * 100.0f + 500.0f, 0);
 
 				g_aTextRanking[nCnt].bUse = true;
 
@@ -290,12 +297,12 @@ void SetRankingText(void)
 				pVtx[2].pos = g_aTextRanking[nCnt].pos + D3DXVECTOR3(g_aTextRanking[nCnt].width / -2, g_aTextRanking[nCnt].height / 2, 0);
 				pVtx[3].pos = g_aTextRanking[nCnt].pos + D3DXVECTOR3(g_aTextRanking[nCnt].width / 2, g_aTextRanking[nCnt].height / 2, 0);
 
-				pVtx[0].tex = D3DXVECTOR2(0.0f, 0.0f);
-				pVtx[1].tex = D3DXVECTOR2(0.1f, 0.0f);
-				pVtx[2].tex = D3DXVECTOR2(0.0f, 1.0f);
-				pVtx[3].tex = D3DXVECTOR2(0.1f, 1.0f);
+				pVtx[0].tex = D3DXVECTOR2(aScore[nScoreCnt] * 0.1f, 0.0f);
+				pVtx[1].tex = D3DXVECTOR2(aScore[nScoreCnt] * 0.1f + 0.1f, 0.0f);
+				pVtx[2].tex = D3DXVECTOR2(aScore[nScoreCnt] * 0.1f, 1.0f);
+				pVtx[3].tex = D3DXVECTOR2(aScore[nScoreCnt] * 0.1f + 0.1f, 1.0f);
 
-					nCnt++;
+				nCnt++;
 				pVtx += AMOUNT_VTX;
 			}
 		}
