@@ -15,6 +15,7 @@
 #define MAX_RANK	(5) // 表示するスコアの順位の数
 #define MAX_SCORE	(8)	// 表示するスコアの桁数
 #define MAX_TEXT	(256)	// 描画するテキストの最大数
+#define RANKING_FLASH	(5)	// テキストの点滅速度
 
 typedef struct
 {
