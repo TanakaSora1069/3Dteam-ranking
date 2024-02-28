@@ -12,6 +12,7 @@
 #include "input.h"
 #include "sound.h"
 #include "title.h"
+#include "game.h"
 
 int g_aHighScore[MAX_RANK * MAX_PLAYER];	// ハイスコア格納
 int g_PlayerNum;							// プレイ人数
@@ -211,6 +212,8 @@ void DrawRanking(void)
 void GetScore(void)
 {
 	FILE* pFile;	// ファイルポインタ
+	int* score;		// 今回プレイのスコア
+	int* player;	// 今回プレイのプレイヤー人数
 
 	// ファイルを開く
 	//pFile = fopen("", "r");
@@ -226,6 +229,14 @@ void GetScore(void)
 	// ファイルを閉じる
 	//fclose(pFile);
 //}
+
+	// 今回プレイのスコア取得
+	//score = GetInfoScore();
+
+	// 今回プレイのプレイヤー人数取得
+
+	// ランキング更新
+
 }
 
 //========================================
@@ -308,10 +319,23 @@ void SetRankingText(void)
 	//}
 
 	/// スコア
+	int aScore[MAX_SCORE] = {};	// 表示用スコア格納
+	int nScoreSto = 0;			// 計算用スコア格納
+
+	GetScore();
+
 	for (int nPlayerCnt = 1; nPlayerCnt <= MAX_PLAYER; nPlayerCnt++)
 	{
 		for (int nRankCnt = 0; nRankCnt < MAX_RANK; nRankCnt++)
 		{
+			nScoreSto = g_aHighScore[((nPlayerCnt - 1) * MAX_RANK) + nRankCnt];
+
+			for (int nScoreCnt = 0; nScoreCnt < MAX_SCORE; nScoreCnt++)
+			{
+				aScore[MAX_SCORE - nScoreCnt - 1] = nScoreSto - ((nScoreSto / 10) * 10);
+				nScoreSto /= 10;
+			}
+
 			for (int nScoreCnt = 0; nScoreCnt < MAX_SCORE; nScoreCnt++)
 			{
 				g_aTextRanking[nCnt].type = 4;
@@ -327,10 +351,12 @@ void SetRankingText(void)
 				pVtx[2].pos = g_aTextRanking[nCnt].pos + D3DXVECTOR3(g_aTextRanking[nCnt].width / -2, g_aTextRanking[nCnt].height / 2, 0);
 				pVtx[3].pos = g_aTextRanking[nCnt].pos + D3DXVECTOR3(g_aTextRanking[nCnt].width / 2, g_aTextRanking[nCnt].height / 2, 0);
 
-				pVtx[0].tex = D3DXVECTOR2(0.0f, 0.0f);
-				pVtx[1].tex = D3DXVECTOR2(0.1f, 0.0f);
-				pVtx[2].tex = D3DXVECTOR2(0.0f, 1.0f);
-				pVtx[3].tex = D3DXVECTOR2(0.1f, 1.0f);
+				//g_aHighScore[(nPlayerCnt - 1) * MAX_RANK + nRankCnt]
+
+				pVtx[0].tex = D3DXVECTOR2(aScore[nScoreCnt] * 0.1f, 0.0f);
+				pVtx[1].tex = D3DXVECTOR2(aScore[nScoreCnt] * 0.1f + 0.1f, 0.0f);
+				pVtx[2].tex = D3DXVECTOR2(aScore[nScoreCnt] * 0.1f, 1.0f);
+				pVtx[3].tex = D3DXVECTOR2(aScore[nScoreCnt] * 0.1f + 0.1f, 1.0f);
 
 				nCnt++;
 				pVtx += AMOUNT_VTX;
