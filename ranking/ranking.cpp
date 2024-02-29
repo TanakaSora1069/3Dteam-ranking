@@ -13,6 +13,7 @@
 #include "sound.h"
 #include "title.h"
 #include "game.h"
+#include "fade.h"
 
 int g_aHighScore[MAX_RANK * MAX_PLAYER];	// ハイスコア格納
 int g_PlayerNum;							// プレイ人数
@@ -106,6 +107,7 @@ void InitRanking(void)
 	bSwitchRankAlpha = false;
 
 	SetRankingText();
+	SetFade(FADE_IN, MODE_MAX);
 }
 
 //========================================
@@ -171,7 +173,7 @@ void UpdateRanking(void)
 
 	if (GetJoypadTrigger(JOYKEY_A, 0) == true || GetKeyboardTrigger(DIK_RETURN) == true)
 	{
-		SetMode(MODE_TITLE);
+		SetFade(FADE_OUT, MODE_TITLE);
 	}
 }
 
@@ -223,7 +225,7 @@ void GetScore(void)
 	for (int nCnt = 0; nCnt < MAX_RANK * MAX_PLAYER; nCnt++)
 	{
 		// ファイルからスコアを読み込む
-		g_aHighScore[nCnt] = int(123400); // スコア（仮）
+		g_aHighScore[nCnt] = 123400; // スコア（仮）
 	}
 
 	// ファイルを閉じる
@@ -234,9 +236,16 @@ void GetScore(void)
 	//score = GetInfoScore();
 
 	// 今回プレイのプレイヤー人数取得
+	//player =
 
 	// ランキング更新
+	//for (int nCnt = 0; nCnt <MAX_RANK; nCnt++)
+	//{
+	//	if (g_aHighScore[((*player-1) * MAX_RANK) + nCnt] < *score)
+	//	{
 
+	//	}
+	//}
 }
 
 //========================================
@@ -350,8 +359,6 @@ void SetRankingText(void)
 				pVtx[1].pos = g_aTextRanking[nCnt].pos + D3DXVECTOR3(g_aTextRanking[nCnt].width / 2, g_aTextRanking[nCnt].height / -2, 0);
 				pVtx[2].pos = g_aTextRanking[nCnt].pos + D3DXVECTOR3(g_aTextRanking[nCnt].width / -2, g_aTextRanking[nCnt].height / 2, 0);
 				pVtx[3].pos = g_aTextRanking[nCnt].pos + D3DXVECTOR3(g_aTextRanking[nCnt].width / 2, g_aTextRanking[nCnt].height / 2, 0);
-
-				//g_aHighScore[(nPlayerCnt - 1) * MAX_RANK + nRankCnt]
 
 				pVtx[0].tex = D3DXVECTOR2(aScore[nScoreCnt] * 0.1f, 0.0f);
 				pVtx[1].tex = D3DXVECTOR2(aScore[nScoreCnt] * 0.1f + 0.1f, 0.0f);
