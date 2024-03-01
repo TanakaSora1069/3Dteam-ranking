@@ -225,6 +225,7 @@ void GetScore(void)
 	for (int nCnt = 0; nCnt < MAX_RANK * MAX_PLAYER; nCnt++)
 	{
 		// ファイルからスコアを読み込む
+		//fscanf(pFile, "%n", g_aHighScore[nCnt]);
 		g_aHighScore[nCnt] = 123400; // スコア（仮）
 	}
 
@@ -240,8 +241,8 @@ void GetScore(void)
 
 	// ランキング更新
 	 
-	for (int nCnt = 0; nCnt <MAX_RANK; nCnt++)
-	{
+	//for (int nCnt = 0; nCnt <MAX_RANK; nCnt++)
+	//{
 	//	if (g_aHighScore[((*player-1) * MAX_RANK) + nCnt] < *score)
 	//	{
 		//for (int nScoreCnt = MAX_RANK - 1; nScoreCnt > nCnt; nScoreCnt--)
@@ -252,7 +253,7 @@ void GetScore(void)
 		// 新しいスコアを入れる
 		//g_aHighScore[((*player - 1) * MAX_RANK) + nCnt] = *score;
 	//	}
-	}
+	//}
 }
 
 //========================================
